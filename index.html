@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Digital vCard</title>
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
+
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:Arial, Helvetica, sans-serif;
+    }
+
+    body{
+      background:#efefef;
+      display:flex;
+      justify-content:center;
+      align-items:flex-start;
+      min-height:100vh;
+    }
+
+    .card{
+      width:100%;
+      max-width:570px;
+      background:#fff;
+      min-height:100vh;
+      box-shadow:0 0 20px rgba(0,0,0,0.08);
+    }
+
+    /* HEADER */
+    .header{
+      background:#d90000;
+      color:#fff;
+      text-align:center;
+      padding:50px 20px 0;
+    }
+
+    .logo{
+      width:120px;
+      height:120px;
+      border-radius:50%;
+      background:#fff;
+      margin:0 auto 20px;
+      overflow:hidden;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+    }
+
+    .logo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .company-name{
+      font-size:38px;
+      font-weight:500;
+      margin-bottom:40px;
+    }
+
+    /* ACTION BUTTONS */
+    .actions{
+      display:flex;
+      border-top:1px solid rgba(255,255,255,0.2);
+      margin-top:30px;
+    }
+
+    .action-btn{
+      flex:1;
+      padding:18px 10px;
+      color:#fff;
+      text-decoration:none;
+      border-right:1px solid rgba(255,255,255,0.2);
+      transition:0.3s;
+    }
+
+    .action-btn:last-child{
+      border-right:none;
+    }
+
+    .action-btn:hover{
+      background:rgba(255,255,255,0.08);
+    }
+
+    .action-btn i{
+      font-size:22px;
+      margin-bottom:8px;
+      display:block;
+    }
+
+    .action-btn span{
+      font-size:13px;
+      letter-spacing:1px;
+    }
+
+    /* CONTENT */
+    .content{
+      padding:40px;
+    }
+
+    .info{
+      display:flex;
+      align-items:flex-start;
+      gap:20px;
+      padding:22px 0;
+      border-bottom:1px solid #ddd;
+    }
+
+    .info i{
+      color:#999;
+      font-size:24px;
+      width:30px;
+      margin-top:5px;
+    }
+
+    .info h3{
+      font-size:24px;
+      color:#222;
+      margin-bottom:6px;
+      font-weight:500;
+    }
+
+    .info p{
+      color:#888;
+      font-size:18px;
+    }
+
+    /* DOWNLOAD BUTTON */
+    .download-btn{
+      margin-top:40px;
+      width:100%;
+      border:none;
+      background:#ef9a9a;
+      color:#fff;
+      padding:22px;
+      font-size:20px;
+      cursor:pointer;
+      border-radius:4px;
+      box-shadow:0 8px 18px rgba(0,0,0,0.2);
+      transition:0.3s;
+    }
+
+    .download-btn:hover{
+      background:#e57373;
+      transform:translateY(-2px);
+    }
+
+    .download-btn i{
+      margin-right:10px;
+    }
+
+    @media(max-width:600px){
+
+      .company-name{
+        font-size:28px;
+      }
+
+      .content{
+        padding:25px;
+      }
+
+      .info h3{
+        font-size:18px;
+      }
+
+      .info p{
+        font-size:14px;
+      }
+
+      .download-btn{
+        font-size:16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+
+    <!-- HEADER -->
+    <div class="header">
+
+      <div class="logo">
+        <img src="https://via.placeholder.com/120" alt="Logo">
+      </div>
+
+      <div class="company-name">
+        Gaisano Leasing
+      </div>
+
+      <div class="actions">
+
+        <a href="tel:09988428565" class="action-btn">
+          <i class="fa-solid fa-phone"></i>
+          <span>CALL</span>
+        </a>
+
+        <a href="mailto:leasing@gaisanobrothers.com" class="action-btn">
+          <i class="fa-solid fa-envelope"></i>
+          <span>EMAIL</span>
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- CONTENT -->
+    <div class="content">
+
+      <div class="info">
+        <i class="fa-solid fa-phone"></i>
+
+        <div>
+          <h3>0998-842-8565</h3>
+          <p>Mobile</p>
+        </div>
+      </div>
+
+      <div class="info">
+        <i class="fa-solid fa-envelope"></i>
+
+        <div>
+          <h3>leasing@gaisanobrothers.com</h3>
+          <p>Email</p>
+        </div>
+      </div>
+
+      <!-- DOWNLOAD VCARD -->
+      <button class="download-btn" onclick="downloadVCard()">
+  <i class="fa-solid fa-download"></i>
+  DOWNLOAD
+</button>
+
+<script>
+function downloadVCard() {
+
+  const vCardData = `
+BEGIN:VCARD
+VERSION:3.0
+FN:Gaisano Leasing
+ORG:Gaisano Leasing
+TEL;TYPE=CELL:09988428565
+EMAIL:leasing@gaisanobrothers.com
+END:VCARD
+`;
+
+  const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
+
+  const link = document.createElement('a');
+  link.href = URL.createObjectURL(blob);
+
+  // file name
+  link.download = 'Gaisano-Leasing.vcf';
+
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
+</script>
+
+</body>
+</html>
