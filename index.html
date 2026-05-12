@@ -1,15 +1,17 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Digital vCard</title>
+  <title>Gaisano Leasing Contacts</title>
 
   <!-- Font Awesome -->
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
   <style>
+
     *{
       margin:0;
       padding:0;
@@ -114,22 +116,22 @@
     }
 
     .info i{
-      color:#999;
-      font-size:24px;
-      width:30px;
+      font-size:28px;
+      width:35px;
       margin-top:5px;
     }
 
     .info h3{
-      font-size:24px;
+      font-size:22px;
       color:#222;
       margin-bottom:6px;
       font-weight:500;
+      line-height:1.5;
     }
 
     .info p{
       color:#888;
-      font-size:18px;
+      font-size:16px;
     }
 
     /* DOWNLOAD BUTTON */
@@ -177,68 +179,132 @@
       .download-btn{
         font-size:16px;
       }
+
     }
+
   </style>
 </head>
+
 <body>
 
-  <div class="card">
+<div class="card">
 
-    <!-- HEADER -->
-    <div class="header">
+  <!-- HEADER -->
+  <div class="header">
 
-      <div class="logo">
-        <img src="logo.png" alt="Logo">
-      </div>
+    <div class="logo">
+      <img src="logo.png" alt="Logo">
+    </div>
 
-      <div class="company-name">
-        Gaisano Leasing
-      </div>
+    <div class="company-name">
+      Gaisano Leasing
+    </div>
 
-      <div class="actions">
+    <!-- TOP ACTION BUTTONS -->
+    <div class="actions">
 
-        <a href="tel:09988428565" class="action-btn">
-          <i class="fa-solid fa-phone"></i>
-          <span>CALL</span>
-        </a>
+      <a href="https://maps.google.com/?q=Gaisano+Country+Mall,+6000,+Gov.+M.+Cuenco+Ave,+Apas,+Cebu+City,+Cebu"
+         target="_blank"
+         class="action-btn">
 
-        <a href="mailto:leasing@gaisanobrothers.com" class="action-btn">
-          <i class="fa-solid fa-envelope"></i>
-          <span>EMAIL</span>
-        </a>
+        <i class="fa-solid fa-location-dot"></i>
+        <span>MAP</span>
+      </a>
 
-      </div>
+      <a href="mailto:leasing@gaisanobrothers.com"
+         class="action-btn">
+
+        <i class="fa-solid fa-envelope"></i>
+        <span>EMAIL</span>
+      </a>
+
+      <a href="tel:09988428565"
+         class="action-btn">
+
+        <i class="fa-solid fa-mobile-screen-button"></i>
+        <span>CONTACT</span>
+      </a>
 
     </div>
 
-    <!-- CONTENT -->
-    <div class="content">
+  </div>
 
-      <div class="info">
-        <i class="fa-solid fa-phone"></i>
+  <!-- CONTENT -->
+  <div class="content">
 
-        <div>
-          <h3>0998-842-8565</h3>
-          <p>Mobile</p>
-        </div>
+    <!-- ADDRESS -->
+    <div class="info">
+
+      <i class="fa-solid fa-location-dot"
+         style="color:#22c55e;"></i>
+
+      <div>
+
+        <h3>
+          <a href="https://maps.google.com/?q=Gaisano+Country+Mall,+6000,+Gov.+M.+Cuenco+Ave,+Apas,+Cebu+City,+Cebu"
+             target="_blank"
+             style="text-decoration:none;color:#222;">
+
+            2F, Admin Office, Gaisano Country Mall,
+            Gov. M. Cuenco Ave., Banilad,
+            Cebu City 6000
+
+          </a>
+        </h3>
+
+        <p>Address</p>
+
       </div>
+    </div>
 
-      <div class="info">
-        <i class="fa-solid fa-envelope"></i>
+    <!-- EMAIL -->
+    <div class="info">
 
-        <div>
-          <h3>leasing@gaisanobrothers.com</h3>
-          <p>Email</p>
-        </div>
+      <i class="fa-solid fa-envelope"
+         style="color:#ef4444;"></i>
+
+      <div>
+
+        <h3>
+          leasing@gaisanobrothers.com
+        </h3>
+
+        <p>Email</p>
+
       </div>
+    </div>
 
-      <!-- DOWNLOAD VCARD -->
-      <button class="download-btn" onclick="downloadVCard()">
-  <i class="fa-solid fa-download"></i>
-  DOWNLOAD
-</button>
+    <!-- CONTACT -->
+    <div class="info">
+
+      <i class="fa-solid fa-mobile-screen-button"
+         style="color:#3b82f6;"></i>
+
+      <div>
+
+        <h3>
+          0998-842-8565
+        </h3>
+
+        <p>Mobile Contact</p>
+
+      </div>
+    </div>
+
+    <!-- DOWNLOAD VCARD BUTTON -->
+    <button class="download-btn" onclick="downloadVCard()">
+
+      <i class="fa-solid fa-download"></i>
+      DOWNLOAD VCARD
+
+    </button>
+
+  </div>
+
+</div>
 
 <script>
+
 function downloadVCard() {
 
   const vCardData = `
@@ -248,21 +314,28 @@ FN:Gaisano Leasing
 ORG:Gaisano Leasing
 TEL;TYPE=CELL:09988428565
 EMAIL:leasing@gaisanobrothers.com
+ADR:;;2F Admin Office, Gaisano Country Mall, Gov M. Cuenco Ave., Banilad, Cebu City 6000;;;;
 END:VCARD
 `;
 
-  const blob = new Blob([vCardData], { type: 'text/vcard;charset=utf-8' });
+  const blob = new Blob(
+    [vCardData],
+    { type: 'text/vcard;charset=utf-8' }
+  );
 
   const link = document.createElement('a');
+
   link.href = URL.createObjectURL(blob);
 
-  // file name
   link.download = 'Gaisano-Leasing.vcf';
 
   document.body.appendChild(link);
+
   link.click();
+
   document.body.removeChild(link);
 }
+
 </script>
 
 </body>
