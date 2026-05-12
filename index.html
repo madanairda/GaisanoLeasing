@@ -9,200 +9,221 @@
   <link rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"/>
 
-  <style>
+  ```html
+<style>
+  *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+  }
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:Arial, Helvetica, sans-serif;
-    }
+  body{
+    background:#efefef;
+    display:flex;
+    justify-content:center;
+    align-items:flex-start;
+    min-height:100vh;
+  }
 
-    body{
-      background:#efefef;
-      display:flex;
-      justify-content:center;
-      align-items:flex-start;
-      min-height:100vh;
-    }
+  .card{
+    width:100%;
+    max-width:570px;
+    background:#fff;
+    min-height:100vh;
+    box-shadow:0 0 20px rgba(0,0,0,0.08);
+  }
 
-    .card{
-      width:100%;
-      max-width:570px;
-      background:#fff;
-      min-height:100vh;
-      box-shadow:0 0 20px rgba(0,0,0,0.08);
-    }
+  /* HEADER */
+  .header{
+    background:#d90000;
+    color:#fff;
+    text-align:center;
+    padding:50px 20px 0;
+  }
 
-    /* HEADER */
-    .header{
-      background:#d90000;
-      color:#fff;
-      text-align:center;
-      padding:50px 20px 0;
-    }
+  .logo{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:#fff;
+    margin:0 auto 20px;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
 
-    .logo{
-      width:120px;
-      height:120px;
-      border-radius:50%;
-      background:#fff;
-      margin:0 auto 20px;
-      overflow:hidden;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-    }
+  .logo img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+  }
 
-    .logo img{
-      width:100%;
-      height:100%;
-      object-fit:cover;
-    }
+  .company-name{
+    font-size:38px;
+    font-weight:500;
+    margin-bottom:40px;
+  }
+
+  /* ACTION BUTTONS */
+  .actions{
+    display:flex;
+    border-top:1px solid rgba(255,255,255,0.2);
+    margin-top:30px;
+  }
+
+  .action-btn{
+    flex:1;
+    padding:18px 10px;
+    color:#fff;
+    text-decoration:none;
+    border-right:1px solid rgba(255,255,255,0.2);
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    transition:0.3s;
+    min-height:100px;
+  }
+
+  .action-btn:last-child{
+    border-right:none;
+  }
+
+  .action-btn:hover{
+    background:rgba(255,255,255,0.08);
+  }
+
+  .action-btn i{
+    font-size:22px;
+    margin-bottom:10px;
+    display:block;
+    line-height:1;
+  }
+
+  .action-btn span{
+    font-size:14px;
+    letter-spacing:1px;
+    display:block;
+    line-height:1;
+    text-align:center;
+  }
+
+  /* CONTENT */
+  .content{
+    padding:40px;
+  }
+
+  /* FIXED INFO ALIGNMENT */
+  .info{
+    display:flex;
+    align-items:flex-start;
+    gap:20px;
+    padding:22px 0;
+    border-bottom:1px solid #ddd;
+  }
+
+  .info i{
+    font-size:28px;
+    width:35px;
+    text-align:center;
+    flex-shrink:0;
+    margin-top:2px;
+  }
+
+  .info div{
+    flex:1;
+  }
+
+  .info h3{
+    font-size:22px;
+    color:#222;
+    margin-bottom:6px;
+    font-weight:500;
+    line-height:1.5;
+    word-break:break-word;
+  }
+
+  .info p{
+    color:#888;
+    font-size:16px;
+  }
+
+  .info a{
+    text-decoration:none;
+    color:#222;
+  }
+
+  .info a:hover{
+    color:#d90000;
+  }
+
+  /* DOWNLOAD BUTTON */
+  .download-btn{
+    margin-top:40px;
+    width:100%;
+    border:none;
+    background:#ef9a9a;
+    color:#fff;
+    padding:22px;
+    font-size:20px;
+    cursor:pointer;
+    border-radius:4px;
+    box-shadow:0 8px 18px rgba(0,0,0,0.2);
+    transition:0.3s;
+  }
+
+  .download-btn:hover{
+    background:#e57373;
+    transform:translateY(-2px);
+  }
+
+  .download-btn i{
+    margin-right:10px;
+  }
+
+  @media(max-width:600px){
 
     .company-name{
-      font-size:38px;
-      font-weight:500;
-      margin-bottom:40px;
+      font-size:28px;
     }
 
-    /* ACTION BUTTONS */
-    .actions{
-      display:flex;
-      border-top:1px solid rgba(255,255,255,0.2);
-      margin-top:30px;
-    }
-
-    .action-btn{
-      flex:1;
-      padding:18px 10px;
-      color:#fff;
-      text-decoration:none;
-      border-right:1px solid rgba(255,255,255,0.2);
-
-      /* FIX ALIGNMENT */
-      display:flex;
-      flex-direction:column;
-      justify-content:center;
-      align-items:center;
-
-      transition:0.3s;
-      min-height:100px;
-    }
-
-    .action-btn:last-child{
-      border-right:none;
-    }
-
-    .action-btn:hover{
-      background:rgba(255,255,255,0.08);
-    }
-
-    .action-btn i{
-      font-size:22px;
-      margin-bottom:10px;
-      display:block;
-      line-height:1;
-    }
-
-    .action-btn span{
-      font-size:14px;
-      letter-spacing:1px;
-      display:block;
-      line-height:1;
-      text-align:center;
-    }
-
-    /* CONTENT */
     .content{
-      padding:40px;
+      padding:25px;
     }
 
     .info{
-      display:flex;
-      align-items:flex-start;
-      gap:20px;
-      padding:22px 0;
-      border-bottom:1px solid #ddd;
+      gap:15px;
     }
 
     .info i{
-      font-size:28px;
-      width:35px;
-      margin-top:5px;
-      text-align:center;
+      font-size:24px;
+      width:30px;
     }
 
     .info h3{
-      font-size:22px;
-      color:#222;
-      margin-bottom:6px;
-      font-weight:500;
-      line-height:1.5;
+      font-size:18px;
     }
 
     .info p{
-      color:#888;
+      font-size:14px;
+    }
+
+    .download-btn{
       font-size:16px;
     }
 
-    /* DOWNLOAD BUTTON */
-    .download-btn{
-      margin-top:40px;
-      width:100%;
-      border:none;
-      background:#ef9a9a;
-      color:#fff;
-      padding:22px;
-      font-size:20px;
-      cursor:pointer;
-      border-radius:4px;
-      box-shadow:0 8px 18px rgba(0,0,0,0.2);
-      transition:0.3s;
+    .action-btn{
+      min-height:90px;
     }
 
-    .download-btn:hover{
-      background:#e57373;
-      transform:translateY(-2px);
+    .action-btn span{
+      font-size:12px;
     }
+  }
+</style>
 
-    .download-btn i{
-      margin-right:10px;
-    }
-
-    @media(max-width:600px){
-
-      .company-name{
-        font-size:28px;
-      }
-
-      .content{
-        padding:25px;
-      }
-
-      .info h3{
-        font-size:18px;
-      }
-
-      .info p{
-        font-size:14px;
-      }
-
-      .download-btn{
-        font-size:16px;
-      }
-
-      .action-btn{
-        min-height:90px;
-      }
-
-      .action-btn span{
-        font-size:12px;
-      }
-
-    }
-
-  </style>
 </head>
 
 <body>
