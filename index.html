@@ -79,7 +79,15 @@
       color:#fff;
       text-decoration:none;
       border-right:1px solid rgba(255,255,255,0.2);
+
+      /* FIX ALIGNMENT */
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      align-items:center;
+
       transition:0.3s;
+      min-height:100px;
     }
 
     .action-btn:last-child{
@@ -92,13 +100,17 @@
 
     .action-btn i{
       font-size:22px;
-      margin-bottom:8px;
+      margin-bottom:10px;
       display:block;
+      line-height:1;
     }
 
     .action-btn span{
-      font-size:13px;
+      font-size:14px;
       letter-spacing:1px;
+      display:block;
+      line-height:1;
+      text-align:center;
     }
 
     /* CONTENT */
@@ -118,6 +130,7 @@
       font-size:28px;
       width:35px;
       margin-top:5px;
+      text-align:center;
     }
 
     .info h3{
@@ -179,6 +192,14 @@
         font-size:16px;
       }
 
+      .action-btn{
+        min-height:90px;
+      }
+
+      .action-btn span{
+        font-size:12px;
+      }
+
     }
 
   </style>
@@ -208,6 +229,7 @@
 
         <i class="fa-solid fa-location-dot"></i>
         <span>MAP</span>
+
       </a>
 
       <a href="mailto:leasing@gaisanobrothers.com"
@@ -215,6 +237,7 @@
 
         <i class="fa-solid fa-envelope"></i>
         <span>EMAIL</span>
+
       </a>
 
       <a href="tel:09988428565"
@@ -222,6 +245,7 @@
 
         <i class="fa-solid fa-mobile-screen-button"></i>
         <span>CONTACT</span>
+
       </a>
 
     </div>
